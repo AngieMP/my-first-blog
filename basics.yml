@@ -5,18 +5,18 @@
 
   tasks:
 
-    - name: Clonando el repositorio
+    - name: git clone
       git:
         repo: 'https://github.com/AngieMP/my-first-blog.git'
         dest: "{{project_path}}"
         force: true
     
-    - name: create venv and install requirements in venv
+    - name: create venv and install requirements
       pip:
         requirements: "{{project_path}}/requirements.txt"
         virtualenv: "{{project_path}}/.venv"
     
-    - name: Dar permisos de ejecución a manage.py para poder hacer cosas
+    - name: give permissions 
       file:
         path: "{{project_path}}/manage.py"
         mode: 0777 # el modo que le da permisos de ejecución
