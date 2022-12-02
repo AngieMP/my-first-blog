@@ -6,7 +6,7 @@ from fabric.contrib.files import exists
 
 PROJECT_NAME = "my-first-blog"
 PROJECT_PATH = f'/sys-admin/{PROJECT_NAME}'
-REPO_URL = 'https://github.com/AngieMP/django_polls.git'
+REPO_URL = 'https://github.com/AngieMP/my-first-blog.git'
 VENV_PYTHON = f'{PROJECT_PATH}/.venv/bin/python'
 VENV_PIP = f'{PROJECT_PATH}/.venv/bin/pip'
 
