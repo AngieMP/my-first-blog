@@ -4,7 +4,7 @@ from fabric.api import env
 from fabric.contrib.files import exists
 
 
-PROJECT_NAME = "my-first-blog"
+PROJECT_NAME = "my_first_blog"
 PROJECT_PATH = f'/fabric/{PROJECT_NAME}'
 REPO_URL = 'https://github.com/AngieMP/my-first-blog.git'
 VENV_PYTHON = f'{PROJECT_PATH}/.venv/bin/python'
