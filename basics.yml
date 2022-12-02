@@ -27,9 +27,9 @@
         project_path: "{{project_path}}"
         virtual_env: "{{project_path}}/.venv"
     
-    - name: cargar los datos iniciales en la db
+    - name: load data
       django_manage: 
         command: loaddata
         project_path: "{{project_path}}"
         virtual_env: "{{project_path}}/.venv"
-        fixtures: "{{project_path}}/fixtures/polls_data.json"
+        fixtures: "{{project_path}}/db.json"
