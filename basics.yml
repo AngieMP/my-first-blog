@@ -5,11 +5,11 @@
 
   tasks:
 
-    - name: Hacer un git clone del repo
+    - name: Clonando el repositorio
       git:
-        repo: 'https://github.com/AngieMP/django_polls.git'
+        repo: 'https://github.com/AngieMP/my-first-blog.git'
         dest: "{{project_path}}"
-        force: true # que sean iguales si ha habido cambios
+        force: true
     
     - name: create venv and install requirements in venv
       pip:
