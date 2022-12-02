@@ -60,6 +60,7 @@ def django_loaddata():
         
         
 def django_superuser():
+    
     print("creating superuser...")
     
     with cd(PROJECT_PATH):
