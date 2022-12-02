@@ -71,7 +71,7 @@ def deploy():
     clone()
     create_venv()
     install_requirements()
-    django_migrate()
     django_makemigrations()
+    django_migrate()
     django_loaddata()
     django_runserver()
