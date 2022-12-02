@@ -57,14 +57,6 @@ def django_loaddata():
 
     with cd(PROJECT_PATH):
         run(f"{VENV_PYTHON} manage.py loaddata fixtures/polls_data.json ")
-        
-        
-def django_superuser():
-    
-    print("creating superuser...")
-    
-    with cd(PROJECT_PATH):
-        run(f"{VENV_PYTHON} manage.py createsuperuser --username=angela --email=angelampavon@gmail.com --noinput")
 
 
 def django_runserver():
@@ -82,5 +74,4 @@ def deploy():
     django_migrate()
     django_makemigrations()
     django_loaddata()
-    django_superuser()
     django_runserver()
