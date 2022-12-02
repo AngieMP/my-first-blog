@@ -20,6 +20,12 @@
       file:
         path: "{{project_path}}/manage.py"
         mode: 0777 # el modo que le da permisos de ejecución
+        
+    - name: makemigrations
+      community.general.django_manage:
+        command: makemigrations
+        project_path: "{{project_path}}"
+        virtual_env: "{{project_path}}/.venv"
 
     - name: migrate
       community.general.django_manage:
