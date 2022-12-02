@@ -35,7 +35,13 @@ def install_requirements():
 
     with cd(PROJECT_PATH):
         run(f"{VENV_PIP} install -r requirements.txt ")
+        
+def django_makemigrations():
 
+    print("making migrations...")
+    
+    with cd(PROJECT_PATH):
+        run(f"{VENV_PYTHON} manage.py makemigrations")
 
 def django_migrate():
 
@@ -66,5 +72,6 @@ def deploy():
     create_venv()
     install_requirements()
     django_migrate()
+    django_makemigrations()
     django_loaddata()
     django_runserver()
