@@ -1,0 +1,35 @@
+---
+- hosts: all
+  vars_files:
+   - vars.yml
+
+  tasks:
+
+    - name: Hacer un git clone del repo
+      git:
+        repo: 'https://github.com/AngieMP/django_polls.git'
+        dest: "{{project_path}}"
+        force: true # que sean iguales si ha habido cambios
+    
+    - name: create venv and install requirements in venv
+      pip:
+        requirements: "{{project_path}}/requirements.txt"
+        virtualenv: "{{project_path}}/.venv"
+    
+    - name: Dar permisos de ejecución a manage.py para poder hacer cosas
+      file:
+        path: "{{project_path}}/manage.py"
+        mode: 0777 # el modo que le da permisos de ejecución
+
+    - name: migrate
+      community.general.django_manage:
+        command: migrate
+        project_path: "{{project_path}}"
+        virtual_env: "{{project_path}}/.venv"
+    
+    - name: cargar los datos iniciales en la db
+      django_manage: 
+        command: loaddata
+        project_path: "{{project_path}}"
+        virtual_env: "{{project_path}}/.venv"
+        fixtures: "{{project_path}}/fixtures/polls_data.json"
