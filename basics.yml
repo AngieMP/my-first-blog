@@ -33,7 +33,7 @@
         project_path: "{{project_path}}"
         virtual_env: "{{project_path}}/.venv"
     
-    - name: load data
+    - name: load initial data
       django_manage: 
         command: loaddata
         project_path: "{{project_path}}"
