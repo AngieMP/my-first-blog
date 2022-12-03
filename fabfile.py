@@ -13,7 +13,8 @@ VENV_PIP = f'{PROJECT_PATH}/.venv/bin/pip'
 env.hosts = ['3.15.38.15', '18.217.241.86']
 
 def clone():
-    print(f"clone repo {REPO_URL}...")
+    
+    print(f"clone: {REPO_URL}...")
 
     if exists(PROJECT_PATH):
         print("project already exists")
