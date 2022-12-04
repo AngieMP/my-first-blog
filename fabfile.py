@@ -4,8 +4,8 @@ from fabric.api import env
 from fabric.contrib.files import exists
 
 
-PROJECT_NAME = "my_first_blog"
-PROJECT_PATH = f'/fabric/{PROJECT_NAME}'
+PROJECT_NAME = "myfirstblog"
+PROJECT_PATH = f'/home/angela/{PROJECT_NAME}'
 REPO_URL = 'https://github.com/AngieMP/my-first-blog.git'
 VENV_PYTHON = f'{PROJECT_PATH}/.venv/bin/python'
 VENV_PIP = f'{PROJECT_PATH}/.venv/bin/pip'
@@ -24,7 +24,7 @@ def clone():
 
 def create_venv():
 
-    print("creating venv....")
+    print("creating venv...")
 
     with cd(PROJECT_PATH):
         run("python3 -m venv .venv")
@@ -51,14 +51,12 @@ def django_migrate():
     with cd(PROJECT_PATH):
         run(f"{VENV_PYTHON} manage.py migrate ")
 
-
 def django_loaddata():
 
     print("loading initial data...")
 
     with cd(PROJECT_PATH):
-        run(f"{VENV_PYTHON} manage.py loaddata fixtures/polls_data.json ")
-
+        run(f"{VENV_PYTHON} manage.py loaddata db.json ")
 
 def django_runserver():
 
@@ -66,7 +64,6 @@ def django_runserver():
 
     with cd(PROJECT_PATH):
         run(f"{VENV_PYTHON} manage.py runserver")
-
 
 def deploy():
     clone()
@@ -76,3 +73,4 @@ def deploy():
     django_migrate()
     django_loaddata()
     django_runserver()
+    
