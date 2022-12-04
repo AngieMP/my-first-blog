@@ -37,6 +37,7 @@ def install_requirements():
     with cd(PROJECT_PATH):
         run(f"{VENV_PIP} install -r requirements.txt ")
         
+        
 def django_makemigrations():
 
     print("making migrations...")
@@ -44,6 +45,7 @@ def django_makemigrations():
     with cd(PROJECT_PATH):
         run(f"{VENV_PYTHON} manage.py makemigrations")
 
+        
 def django_migrate():
 
     print("executing django migrations...")
@@ -51,6 +53,7 @@ def django_migrate():
     with cd(PROJECT_PATH):
         run(f"{VENV_PYTHON} manage.py migrate ")
 
+        
 def django_loaddata():
 
     print("loading initial data...")
@@ -58,6 +61,7 @@ def django_loaddata():
     with cd(PROJECT_PATH):
         run(f"{VENV_PYTHON} manage.py loaddata db.json ")
 
+        
 def django_runserver():
 
     print("runing server...")
@@ -65,6 +69,7 @@ def django_runserver():
     with cd(PROJECT_PATH):
         run(f"{VENV_PYTHON} manage.py runserver")
 
+        
 def deploy():
     clone()
     create_venv()
